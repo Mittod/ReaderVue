@@ -2,13 +2,20 @@
 import HeaderComponent from './components/HeaderComponent.vue'
 import SidebarComponent from './components/SidebarComponent.vue'
 
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeMount } from 'vue'
 
 const showSidebar = ref(true)
 const handleStateUpdate = (newState: boolean) => {
   showSidebar.value = newState;
-  console.log(showSidebar);
 }
+
+onBeforeMount(() => {
+  console.log('App start mounting')
+})
+
+onMounted(() => {
+  console.log('App mounted')
+})
 </script>
 
 <template>
@@ -21,5 +28,4 @@ const handleStateUpdate = (newState: boolean) => {
   </v-app>
 </template>
 
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>
